@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * FileReader & FileWriter - адаптеры между File и интерфейсами InputStream, OutputStream, Reader, Writer
+ * FileReader & FileWriter - Р°РґР°РїС‚РµСЂС‹ РјРµР¶РґСѓ File Рё РёРЅС‚РµСЂС„РµР№СЃР°РјРё InputStream, OutputStream, Reader, Writer
  */
 public class Demo02 {
     public static void main(String[] args) throws IOException {

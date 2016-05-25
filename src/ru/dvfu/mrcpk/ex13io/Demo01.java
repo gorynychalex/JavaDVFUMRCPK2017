@@ -1,1 +1,31 @@
-package ru.dvfu.mrcpk.ex13io;import java.io.*;import java.util.ArrayList;import java.util.List;public class Demo01 {    public static void main(String[] args) throws IOException {        // Поток на чтение байт из файла        FileInputStream inputStream = new FileInputStream("c:/test/data1.txt");        // Поток на запись байт в файл        FileOutputStream outputStream = new FileOutputStream("c:/test/data2.txt");        // Массив 1000 байт        byte[] b = new byte[1000];        // Цикл чтения байт из входного потока, пока есть еще непрочитанные байты        while (inputStream.available()>0){            // Поблочное чтение и передача в переменную            int str = inputStream.read(b);            // Поблочная запись в поток вывода            outputStream.write(str);        }        // Закрытие потоков        inputStream.close();        outputStream.close();    }}
+package ru.dvfu.mrcpk.ex13io;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo01 {
+    public static void main(String[] args) throws IOException {
+        // РџРѕС‚РѕРє РЅР° С‡С‚РµРЅРёРµ Р±Р°Р№С‚ РёР· С„Р°Р№Р»Р°
+        FileInputStream inputStream = new FileInputStream("c:/test/data1.txt");
+        // РџРѕС‚РѕРє РЅР° Р·Р°РїРёСЃСЊ Р±Р°Р№С‚ РІ С„Р°Р№Р»
+        FileOutputStream outputStream = new FileOutputStream("c:/test/data2.txt");
+
+        // РњР°СЃСЃРёРІ 1000 Р±Р°Р№С‚
+        byte[] b = new byte[1000];
+
+        // Р¦РёРєР» С‡С‚РµРЅРёСЏ Р±Р°Р№С‚ РёР· РІС…РѕРґРЅРѕРіРѕ РїРѕС‚РѕРєР°, РїРѕРєР° РµСЃС‚СЊ РµС‰Рµ РЅРµРїСЂРѕС‡РёС‚Р°РЅРЅС‹Рµ Р±Р°Р№С‚С‹
+        while (inputStream.available()>0){
+            // РџРѕР±Р»РѕС‡РЅРѕРµ С‡С‚РµРЅРёРµ Рё РїРµСЂРµРґР°С‡Р° РІ РїРµСЂРµРјРµРЅРЅСѓСЋ
+            int str = inputStream.read(b);
+            // РџРѕР±Р»РѕС‡РЅР°СЏ Р·Р°РїРёСЃСЊ РІ РїРѕС‚РѕРє РІС‹РІРѕРґР°
+            outputStream.write(str);
+        }
+
+        // Р—Р°РєСЂС‹С‚РёРµ РїРѕС‚РѕРєРѕРІ
+        inputStream.close();
+        outputStream.close();
+
+
+    }
+}

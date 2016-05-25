@@ -6,13 +6,13 @@ public class DemoChangeIN {
     public static void main(String[] args) throws IOException {
         String s = "This is new string";
 
-        // Обертка для строки через класс ByteArrayInputStream
+        // РћР±РµСЂС‚РєР° РґР»СЏ СЃС‚СЂРѕРєРё С‡РµСЂРµР· РєР»Р°СЃСЃ ByteArrayInputStream
         InputStream inputStream = new ByteArrayInputStream(s.getBytes());
 
-        // Подмена переменной in - поток ввода
+        // РџРѕРґРјРµРЅР° РїРµСЂРµРјРµРЅРЅРѕР№ in - РїРѕС‚РѕРє РІРІРѕРґР°
         System.setIn(inputStream);
 
-        // Буферный ввод из потока ввода
+        // Р‘СѓС„РµСЂРЅС‹Р№ РІРІРѕРґ РёР· РїРѕС‚РѕРєР° РІРІРѕРґР°
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         while (true){

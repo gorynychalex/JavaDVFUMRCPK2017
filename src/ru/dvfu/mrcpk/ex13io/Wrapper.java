@@ -1,7 +1,7 @@
 package ru.dvfu.mrcpk.ex13io;
 
 /**
- * Объект обертка
+ * РћР±СЉРµРєС‚ РѕР±РµСЂС‚РєР°
  */
 public class Wrapper extends Car {
     private Car car;
@@ -10,7 +10,7 @@ public class Wrapper extends Car {
         this.car = car;
     }
 
-    // Переопределение метода
+    // РџРµСЂРµРѕРїСЂРµРґРµР»РµРЅРёРµ РјРµС‚РѕРґР°
     public String getName(){
         return "This is a car " + car.getName();
     }
@@ -19,7 +19,7 @@ public class Wrapper extends Car {
         car.setName(name);
     }
 
-    // Создание объектов Car и Wrapper в главном потоке
+    // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ Car Рё Wrapper РІ РіР»Р°РІРЅРѕРј РїРѕС‚РѕРєРµ
     public static void main(String[] args) {
         Car car = new Car("AUDI");
         Car wrapCar = new Wrapper(car);
