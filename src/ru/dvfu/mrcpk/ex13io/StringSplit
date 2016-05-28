@@ -1,0 +1,16 @@
+package ru.dvfu.mrcpk.ex13io;
+
+public class StringSplit {
+    public static void main(String[] args) {
+        String s = "One Two Three Four";
+
+        for(int i=0; i < s.split(" ").length; i++){
+            String s1 = s.split(" ")[i];
+            System.out.println(s1);
+        }
+
+//        for(String s1 : s.split(" ")){
+//            System.out.println(s1);
+//        }
+    }
+}
