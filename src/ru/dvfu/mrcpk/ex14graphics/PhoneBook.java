@@ -30,7 +30,6 @@ public class PhoneBook extends JFrame implements Runnable
         persons.add(new Person("Nikolay","Petrov",222333));
         persons.add(new Person("Oleg","Sidorov",222333));
         persons.add(new Person("Ilya","Vanin",222333));
-        persons.add(new Person("Борик","Попович",2228868));
     }
 
     @Override
