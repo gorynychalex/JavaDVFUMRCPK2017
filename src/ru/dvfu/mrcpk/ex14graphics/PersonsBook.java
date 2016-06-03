@@ -8,6 +8,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.sql.*;
+import java.util.List;
 import java.util.ArrayList;
 
 public class PersonsBook extends JFrame implements Runnable
@@ -19,6 +25,10 @@ public class PersonsBook extends JFrame implements Runnable
     JTextField jTextField;
 
     Box box;
+
+    public PersonsBook(ArrayList<String> persons){
+        this.persons = persons;
+    }
 
     public PersonsBook(){
         persons.add("Иванов Иван Иванович, 222333");
@@ -109,11 +119,53 @@ public class PersonsBook extends JFrame implements Runnable
         simpleFrame.setVisible(true);
     }
 
-    public static void main(String[] args)
-    {
-        PersonsBook personsBook = new PersonsBook();
+    public static void main(String[] args) throws IOException {
+
+        Connection connection = null;
+        Statement sql = null;
+        ResultSet resultSet = null;
+        ArrayList<String> users = new ArrayList<>();
+        String filePath = "C:\\Users\\administrator\\Documents\\123.s3db";
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection("jdbc:sqlite:" + filePath);
+            sql = connection.createStatement();
+//            connection.setAutoCommit(false);
+            resultSet = sql.executeQuery("select * from user");
+            int n = resultSet.getMetaData().getColumnCount();
+
+            System.out.println();
+            while (resultSet.next()){
+                StringBuilder s = new StringBuilder();
+                System.out.println(s);
+                for (int i = 1; i < n; i++) {
+                    s.append(resultSet.getString(i + 1) + " ");
+                }
+//                System.out.println(s.toString());
+                users.add(s.toString());
+                System.out.println();
+            }
+            resultSet.close();
+            connection.close();
+//            sql.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+
+        }
+
+        PersonsBook personsBook;
+        if(!users.isEmpty())
+            personsBook = new PersonsBook(users);
+        else
+            personsBook = new PersonsBook();
+
 
         EventQueue.invokeLater(personsBook);
+
     }
 }
 
