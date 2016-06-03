@@ -2,7 +2,7 @@ package ru.dvfu.mrcpk.ex15database;
 
 import java.sql.*;
 
-public class Sql {
+public class sql {
     public static void main(String[] args) {
         Connection connection = null;
         ResultSet resultSet = null;
