@@ -1,5 +1,7 @@
 package ru.dvfu.mrcpk.ex12Thread;
 
+//Класс для тестовой демонстрации системы расчета
+
 public class Demo {
     public static void main(String[] args) {
         Account account = new Account(100_000);
