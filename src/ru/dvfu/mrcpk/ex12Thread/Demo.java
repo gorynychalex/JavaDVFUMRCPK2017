@@ -1,6 +1,6 @@
 package ru.dvfu.mrcpk.ex12Thread;
 
-//Класс для тестовой демонстрации системы расчета
+//Класс для тестовой демонстрации системы расчета - инкремент-декремент
 
 public class Demo {
     public static void main(String[] args) {
