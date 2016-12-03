@@ -7,18 +7,23 @@ import java.awt.event.WindowEvent;
 import java.net.InetAddress;
 
 /**
- * ip-address
+ * Класс-приложение: вывод ip-address
  */
 public class Demo01ip {
     public static void main(String[] args)
     {
-
+        //Создание очереди потоков
+        //почти как new Thread(new Runnable())
         EventQueue.invokeLater(new Runnable()
         {
+            //Метод для создания нового потока
             @Override
             public void run()
             {
+                //Объект базового окна
                 FirstSimpleFrame simpleFrame = new FirstSimpleFrame();
+
+                //Добавление слушателя для регистрации нажатий
                 simpleFrame.addWindowListener(new WindowAdapter()
                 {
                     @Override
@@ -28,27 +33,42 @@ public class Demo01ip {
                     }
                 });
 
+                //Объявление переменной для ip-address
                 String ip = null;
                 try
                 {
+                    //Инициализация переменной через вызов
                     ip = InetAddress.getLocalHost().getHostAddress().toString();
+
                 }catch (Exception e){
                     ip = "Error find IP";
                 }
 
+                //Создание панели отображения
                 JPanel jPanel1 = new JPanel();
+
+                //Установка названия окна
                 jPanel1.setBorder(BorderFactory.createTitledBorder("Текущий ip-адрес"));
+
+                //Добавляем адрес
                 jPanel1.add(new JLabel("     " + ip + "     "));
+
+                //Добавляем текстовое поле
                 jPanel1.add(new JTextArea("New ip = " + ip));
+
+                //Добавление панели отображения на главное окно
                 simpleFrame.getContentPane().add(jPanel1);
                 simpleFrame.pack();
 
+                // Делаем видимость окна
                 simpleFrame.setVisible(true);
             }
         });
     }
 
 }
+
+// Класс для создания базового окна приложения
 class FirstSimpleFrame extends JFrame{
     //Размеры окна
     private static final int DEFAULT_WIDTH=300;
