@@ -1,6 +1,6 @@
 package ru.dvfu.mrcpk.ex12Thread;
 
-public class Demo1 {
+public class Demo02Thread {
     private static volatile String car = "BMW";
 
     public static void main(String[] args) throws InterruptedException {
@@ -16,11 +16,11 @@ public class Demo1 {
     }
 
     public static void changeA(){
-        Demo1.car = "AUDI";
+        Demo02Thread.car = "AUDI";
     }
 
     public synchronized static void changeB(){
-        Demo1.car = "ГАЗ";
+        Demo02Thread.car = "ГАЗ";
     }
 
     static class A extends Thread{
