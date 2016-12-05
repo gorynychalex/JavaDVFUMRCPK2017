@@ -1,10 +1,20 @@
 package ru.dvfu.mrcpk.ex12Thread;
 
+//Класс с потокозащищщенными методами
+
 public class Accounts {
+
+    //Баланс
     private long balance;
-    private Accounts() { this(0L); }
-    public Accounts(long balance) { this.balance = balance; }
+
     public long getBalance() { return  balance; }
+
+    //Пустой конструктор
+    private Accounts() { this(0L); }
+
+
+    //Конструктор с заданием баланса
+    public Accounts(long balance) { this.balance = balance; }
 
     // 1) add synchronized to void deposit
     // 2) add synchronized(this)
@@ -12,10 +22,9 @@ public class Accounts {
     public void deposit(long amount){
         checkAmountNonNegative(amount);
             balance += amount;
-
     }
 
-    //1) add synchronized
+    // 1) add synchronized
     // 2) add synchronized(this)
     public void withdraw(long amount){
         checkAmountNonNegative(amount);

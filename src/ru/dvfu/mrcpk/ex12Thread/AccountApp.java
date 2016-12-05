@@ -1,12 +1,13 @@
 package ru.dvfu.mrcpk.ex12Thread;
 
 //Класс для тестовой демонстрации системы расчета - инкремент-декремент
+//Без потокозащищенности
 
-public class Demo {
+public class AccountApp {
     public static void main(String[] args) {
         Account account = new Account(100_000);
-        Thread withdrawThread = new Demo.WithDrawThread(account);
-        Thread depositThread = new Demo.DepositThread(account);
+        Thread withdrawThread = new AccountApp.WithDrawThread(account);
+        Thread depositThread = new AccountApp.DepositThread(account);
         withdrawThread.start();
         depositThread.start();
         System.out.println("Stop balance = " + account.getBalance());
