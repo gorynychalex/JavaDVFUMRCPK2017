@@ -13,8 +13,11 @@ public class sql {
         try{
             //Запрос класса по имени
             Class.forName("org.sqlite.JDBC");
+
+//            DriverManager.registerDriver(new org.sqlite.JDBC());
+
             //Установление соединения
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/gorynych/IdeaProjects/JavaDVFUMRCPK201612/src/ru/dvfu/mrcpk/ex15database/car.s3db");
+            connection = DriverManager.getConnection("jdbc:sqlite:car.s3db");
 //            connection = DriverManager.getConnection("jdbc:sqlite:C:\\test\\car.s3db");
 
             //Создание экземпляра для выполнения запросов (без параметров)
