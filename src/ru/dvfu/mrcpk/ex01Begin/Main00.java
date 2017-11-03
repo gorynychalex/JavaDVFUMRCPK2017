@@ -1,6 +1,6 @@
 package ru.dvfu.mrcpk.ex01Begin;
 
-//Задача нахождения младшего разряда в числе
+//Вывод чисел из переменных
 
 import java.util.Scanner;
 
